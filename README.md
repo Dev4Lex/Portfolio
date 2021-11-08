@@ -1,10 +1,23 @@
 # Portfolio
 Automation QA and way I see it
-## Framework
-## Q&A 
-Q: What principles do I follow?
+## My stack
+**Programming language:** Java
 
-A: [Принципы оформления кода и структуры автотестов](https://github.com/Dev4Lex/Portfolio/blob/main/best_practices.md)
+**Build tool:** Maven
+
+**Framework:** Selenium -> Selenium WebDriver -> Selenide
+
+**Unit testing tool:** Junit
+
+**REST API tool:** REST Assured
+
+**IDE:** IntelliJ IDEA
+
+## Test framework
+## Q&A 
+**Q:** What principles do I follow?
+
+**A:** [Принципы оформления кода и структуры автотестов](https://github.com/Dev4Lex/Portfolio/blob/main/best_practices.md)
 
 DRY – Don’t repeat yourself – принцип призывает Вас не повторяться при написании кода. Все что Вы пишите в проекте, должно быть определено только один раз.
 
