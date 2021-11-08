@@ -1,23 +1,23 @@
 # Portfolio
 Automation QA and way I see it
 ## My stack
-Programming language: *Java*
+Programming language: Java
 
-Build tool: *Maven*
+Build tool: Maven
 
-Test framework: *Selenium -> Selenium WebDriver -> Selenide*
+Test framework: Selenium -> Selenium WebDriver -> Selenide
 
-Parallel across: *Selenium Grid*
+Parallel across: Selenium Grid
 
-CI: *Jenkins*
+CI: Jenkins
 
-Reporting: *Allure*
+Reporting: Allure
 
-Unit testing tool: *Junit*
+Unit testing tool: Junit
 
-REST API tool: *REST Assured*
+REST API tool: REST Assured
 
-IDE: *IntelliJ IDEA*
+IDE: IntelliJ IDEA
 
 ## Test projects
 **What:** UI tests
