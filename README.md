@@ -5,7 +5,13 @@ Automation QA and way I see it
 
 **Build tool:** Maven
 
-**Framework:** Selenium -> Selenium WebDriver -> Selenide
+**Test framework:** Selenium -> Selenium WebDriver -> Selenide
+
+**Parallel across:** Selenium Grid
+
+**CI:** Jenkins
+
+**Reporting:** Allure
 
 **Unit testing tool:** Junit
 
@@ -13,7 +19,17 @@ Automation QA and way I see it
 
 **IDE:** IntelliJ IDEA
 
-## Test framework
+## Test projects
+**What:** UI tests
+
+**Where:** https://www.spotify.com/ru-en/
+___________
+
+**What:** REST API tests
+
+**Where:** https://reqres.in/
+
+
 ## Q&A 
 **Q:** What principles do I follow?
 
