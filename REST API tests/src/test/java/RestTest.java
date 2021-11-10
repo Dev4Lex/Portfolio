@@ -1,39 +1,30 @@
-import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.http.ContentType;
-import io.restassured.specification.RequestSpecification;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import pojos.CreateUserRequest;
+import pojos.UserRequest;
 import pojos.CreateUserResponse;
-import pojos.UserPojo;
 import pojos.UserPojoFull;
-import steps.UsersSteps;
+import utils.RestWrapper;
+import utils.UserGenerator;
 
-
-import java.util.List;
-
-import static io.restassured.RestAssured.given;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.core.IsEqual.equalTo;
 
 public class RestTest {
 
+    private static RestWrapper api;
 
+    @BeforeAll
+    public static void prepareClient(){
+        api = RestWrapper.loginAs("eve.holt@reqres.in","cityslicka");
+    }
 
     @Test
     public void getUsers(){
-        List<UserPojoFull> users = UsersSteps.getUsers();
-        assertThat(users).extracting(UserPojoFull::getEmail).contains("george.bluth@reqres.in");
+        assertThat(api.user.getUsers()).extracting(UserPojoFull::getEmail).contains("george.bluth@reqres.in");
     }
     @Test public void createUser(){
-        CreateUserRequest rq =
-                CreateUserRequest.builder()
-                .name("Alex")
-                .job("QA Engineer")
-                .build();
-
-        UsersSteps userApi = new UsersSteps();
-        CreateUserResponse rs = userApi.createUser(rq);
+        UserRequest rq = UserGenerator.getSimpleUser();
+        CreateUserResponse rs = api.user.createUser(rq);
 
         assertThat(rs)
                 .isNotNull()
