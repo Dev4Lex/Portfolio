@@ -6,6 +6,7 @@ import pojos.CreateUserRequest;
 import pojos.CreateUserResponse;
 import pojos.UserPojo;
 import pojos.UserPojoFull;
+import steps.UsersSteps;
 
 
 import java.util.List;
@@ -17,34 +18,22 @@ import static org.hamcrest.core.IsEqual.equalTo;
 
 public class RestTest {
 
-    private static final RequestSpecification REQ_SPEC =
-            new RequestSpecBuilder()
-                    .setBaseUri("https://reqres.in/api")
-                    .setBasePath("/users")
-                    .setContentType(ContentType.JSON)
-                    .build();
+
 
     @Test
     public void getUsers(){
-        List<UserPojoFull> users = given()
-                .spec(REQ_SPEC)
-                .when().get()
-                .then()
-                .statusCode(200)
-                .extract().jsonPath().getList("data", UserPojoFull.class);
-
+        List<UserPojoFull> users = UsersSteps.getUsers();
         assertThat(users).extracting(UserPojoFull::getEmail).contains("george.bluth@reqres.in");
     }
     @Test public void createUser(){
-        CreateUserRequest rq = new CreateUserRequest();
-        rq.setName("Alex");
-        rq.setJob("QA Engineer");
+        CreateUserRequest rq =
+                CreateUserRequest.builder()
+                .name("Alex")
+                .job("QA Engineer")
+                .build();
 
-        CreateUserResponse rs = given()
-                .spec(REQ_SPEC)
-                .body(rq)
-                .when().post()
-                .then().extract().as(CreateUserResponse.class);
+        UsersSteps userApi = new UsersSteps();
+        CreateUserResponse rs = userApi.createUser(rq);
 
         assertThat(rs)
                 .isNotNull()
