@@ -1,6 +1,7 @@
 package utils.services;
 
 import io.restassured.http.Cookies;
+import pojos.SingleUser;
 import pojos.UserRequest;
 import pojos.CreateUserResponse;
 import pojos.UserPojoFull;
@@ -27,7 +28,13 @@ public class UserService extends RestService{
 
     public List<UserPojoFull> getUsers() {
         return given().spec(REQ_SPEC)
-                .get()
+                .get("?page=2")
                 .jsonPath().getList("data", UserPojoFull.class);
+    }
+
+    public String getUser() {
+        return given().spec(REQ_SPEC)
+                .get("/2")
+                .jsonPath().getJsonObject("data.email");
     }
 }

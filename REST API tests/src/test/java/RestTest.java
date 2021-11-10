@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import pojos.SingleUser;
 import pojos.UserRequest;
 import pojos.CreateUserResponse;
 import pojos.UserPojoFull;
@@ -25,8 +26,17 @@ public class RestTest {
     @DisplayName("Тест получения списка пользователей")
     public void getUsers(){
         // На вход передаем список пользователей из JSON, извлекаем email, проверяем на наличие почты
-        assertThat(api.user.getUsers()).extracting(UserPojoFull::getEmail).contains("george.bluth@reqres.in");
+        assertThat(api.user.getUsers()).extracting(UserPojoFull::getEmail).contains("george.edwards@reqres.in");
     }
+
+    @Test
+    @DisplayName("Тест получения одного пользователя")
+    public void getUser(){
+        // На вход передаем список пользователей из JSON, извлекаем email, проверяем на наличие почты
+        assertThat(api.user.getUser()).contains("janet.weaver@reqres.in");
+        System.out.println(api.user.getUser());
+    }
+
     @Test
     @DisplayName("Тест создания пользователя")
     public void createUser(){
