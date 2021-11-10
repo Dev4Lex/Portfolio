@@ -9,6 +9,7 @@ import static io.restassured.RestAssured.given;
 
 public class OrderService extends RestService {
 
+    //Реализация метода с возвратом базового пути до конкретного api
     @Override
     protected String getBasePath() {
         return "/orders";

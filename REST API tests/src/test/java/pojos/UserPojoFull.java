@@ -3,9 +3,9 @@ package pojos;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
-@Data
+@Data // Процессор аннотации сам сгенерирует геттеры и сеттеры
 public class UserPojoFull{
-	@JsonProperty("last_name")
+	@JsonProperty("last_name") // Явно указываем имя ключа, которому соответствует переменная
 	private String lastName;
 	private int id;
 	private String avatar;
