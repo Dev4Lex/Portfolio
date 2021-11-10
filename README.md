@@ -19,7 +19,7 @@ REST API tool: REST Assured
 
 IDE: IntelliJ IDEA
 
-## Test projects
+## Demo projects
 **What:** UI tests
 
 **Where:** https://www.spotify.com/ru-en/
