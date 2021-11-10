@@ -29,6 +29,8 @@ ___________
 
 **Where:** https://reqres.in/
 
+**How:** [Project](https://github.com/Dev4Lex/Portfolio/tree/main/REST%20API%20tests)
+
 
 ## Q&A 
 **Q:** What principles do I follow?
