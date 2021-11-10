@@ -29,7 +29,13 @@ ___________
 
 **Where:** https://reqres.in/
 
-**How:** [Project](https://github.com/Dev4Lex/Portfolio/tree/main/REST%20API%20tests)
+**How:** 
+Used in  the [Project](https://github.com/Dev4Lex/Portfolio/tree/main/REST%20API%20tests) :
+- Rest-Assured 
+- Junit 
+- Jackson
+- Lombok
+- Assertj
 
 
 ## Q&A 
