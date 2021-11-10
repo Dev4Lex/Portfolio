@@ -3,9 +3,9 @@ package steps;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
-import pojos.CreateUserRequest;
 import pojos.CreateUserResponse;
 import pojos.UserPojoFull;
+import pojos.UserRequest;
 
 import java.util.List;
 
@@ -20,24 +20,24 @@ public class UsersSteps {
                     .build();
 
     private CreateUserResponse user;
-
-    public CreateUserResponse createUser(CreateUserRequest rq) {
-        user = given().body(rq).post().as(CreateUserResponse.class);
+    public CreateUserResponse createUser(UserRequest rq){
+        user = given().spec(REQ_SPEC).body(rq).post().as(CreateUserResponse.class);
         return user;
     }
 
+
     //Метод возвращает значение последнего созданного user
     public UserPojoFull getUser() {
-        return given().get("/" + user.getId()).as(UserPojoFull.class);
+        return given().spec(REQ_SPEC).get("/" + user.getId()).as(UserPojoFull.class);
     }
 
-    public static List<UserPojoFull> getUsers() {
+    public static List<UserPojoFull> getUsers(){
         return given().spec(REQ_SPEC)
                 .get()
                 .jsonPath().getList("data", UserPojoFull.class);
     }
 
     public static UserPojoFull getUser(int id) {
-        return given().get("/" + id).as(UserPojoFull.class);
+        return given().spec(REQ_SPEC).get("/" + id).as(UserPojoFull.class);
     }
 }
