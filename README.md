@@ -23,6 +23,8 @@ IDE: IntelliJ IDEA
 **What:** UI tests
 
 **Where:** https://www.spotify.com/ru-en/
+
+**How:**: https://github.com/Dev4Lex/Portfolio/tree/main/JUnit.Selenide
 ___________
 
 **What:** REST API tests
