@@ -39,6 +39,12 @@ Used in  the [Project](https://github.com/Dev4Lex/Portfolio/tree/main/REST%20API
 - Lombok
 - Assertj
 
+**How:** 
+Used in  the [Project]([https://github.com/Dev4Lex/Portfolio/tree/main/REST%20API%20tests](https://github.com/Dev4Lex/Portfolio/tree/main/Retrofit)) :
+- Retrofit
+- Junit 
+
+
 
 ## Q&A 
 **Q:** What principles do I follow?
