@@ -15,7 +15,7 @@ Reporting: Allure
 
 Unit testing tool: Junit
 
-REST API tool: REST Assured
+REST API tool: REST Assured, Retrofit
 
 IDE: IntelliJ IDEA
 
