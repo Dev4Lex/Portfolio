@@ -40,7 +40,7 @@ Used in  the [Project](https://github.com/Dev4Lex/Portfolio/tree/main/REST%20API
 - Assertj
 
 **How:** 
-Used in  the [Project]([https://github.com/Dev4Lex/Portfolio/tree/main/REST%20API%20tests](https://github.com/Dev4Lex/Portfolio/tree/main/Retrofit)) :
+Used in  the [Project](https://github.com/Dev4Lex/Portfolio/tree/main/Retrofit) :
 - Retrofit
 - Junit 
 
