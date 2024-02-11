@@ -7,6 +7,7 @@ import org.checkerframework.checker.units.qual.A;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.time.Clock;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,7 +19,7 @@ public class ReqresTests {
 
     @Test
     public void checkAvatarAndIdTest() {
-        Specifications.installSpecification(Specifications.requestSpec(URL), Specifications.responseSpecOK());
+        Specifications.installSpecification(Specifications.requestSpec(URL), Specifications.responseSpecOK200());
         List<UserData> users = given()
                 .when()
                 .get("api/users?page=2")
@@ -36,7 +37,7 @@ public class ReqresTests {
 
     @Test
     public void successRegTest(){
-        Specifications.installSpecification(Specifications.requestSpec(URL), Specifications.responseSpecOK());
+        Specifications.installSpecification(Specifications.requestSpec(URL), Specifications.responseSpecOK200());
         Integer id = 4;
         String token = "QpwL5tke4Pnpja7X4";
         Register user = new Register("eve.holt@reqres.in","pistol");
@@ -68,7 +69,7 @@ public class ReqresTests {
 
     @Test
     public void sortedYearsTest(){
-        Specifications.installSpecification(Specifications.requestSpec(URL), Specifications.responseSpecOK());
+        Specifications.installSpecification(Specifications.requestSpec(URL), Specifications.responseSpecOK200());
         List<ColorsData> colors = given()
                 .when()
                 .get("api/inknown")
@@ -80,4 +81,33 @@ public class ReqresTests {
         System.out.println(years);
         System.out.println(sortedYears);
     }
+
+    @Test
+    public void deleteUserTest(){
+        Specifications.installSpecification(Specifications.requestSpec(URL), Specifications.responseSpecUnique(204));
+        given()
+                .when()
+                .delete("api/users/2")
+                .then().log().all();
+    }
+
+    @Test
+    public void timeTest(){
+        Specifications.installSpecification(Specifications.requestSpec(URL), Specifications.responseSpecOK200());
+        UserTime user = new UserTime("morpheus","zion resident");
+        UserTimeResponse response = given()
+                .body(user)
+                .when()
+                .put("api/users/2")
+                .then().log().all()
+                .extract().as(UserTimeResponse.class);
+        String regex = "\\.\\d*.";
+        String currentTime = Clock.systemUTC().instant().toString().replaceAll(regex,"");
+        System.out.println(currentTime);
+        Assertions.assertEquals(currentTime,response.getUpdatedAt().replaceAll(regex,""));
+        System.out.println(response.getUpdatedAt().replaceAll(regex,""));
+
+
+    }
+
 }
