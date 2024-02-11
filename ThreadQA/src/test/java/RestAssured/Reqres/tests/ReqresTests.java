@@ -3,6 +3,7 @@ package RestAssured.Reqres.tests;
 import RestAssured.Reqres.api.Register;
 import RestAssured.Reqres.api.SuccessReg;
 import RestAssured.Reqres.api.UserData;
+import RestAssured.Reqres.api.unSuccessReg;
 import RestAssured.Reqres.spec.Specifications;
 import org.assertj.core.api.Assert;
 import org.checkerframework.checker.units.qual.A;
@@ -36,7 +37,7 @@ public class ReqresTests {
     }
 
     @Test
-    public void successRegisterTest(){
+    public void successRegTest(){
         Specifications.installSpecification(Specifications.requestSpec(URL), Specifications.responseSpecOK());
         Integer id = 4;
         String token = "QpwL5tke4Pnpja7X4";
@@ -52,5 +53,18 @@ public class ReqresTests {
 
         Assertions.assertEquals(id, successReg.getId());
         Assertions.assertEquals(token, successReg.getToken());
+    }
+
+    @Test
+    public void unSuccessRegTest(){
+        Specifications.installSpecification(Specifications.requestSpec(URL), Specifications.responseSpecError400());
+        Register user = new Register("sydney@fife","");
+        unSuccessReg unSuccessReg = given()
+                .body(user)
+                .post("api/register")
+                .then().log().all()
+                .extract().as(RestAssured.Reqres.api.unSuccessReg.class);
+        Assertions.assertEquals("Missing password",unSuccessReg.getError());
+
     }
 }
