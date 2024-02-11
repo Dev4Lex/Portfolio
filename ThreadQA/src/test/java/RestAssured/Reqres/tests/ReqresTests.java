@@ -1,9 +1,6 @@
 package RestAssured.Reqres.tests;
 
-import RestAssured.Reqres.api.Register;
-import RestAssured.Reqres.api.SuccessReg;
-import RestAssured.Reqres.api.UserData;
-import RestAssured.Reqres.api.unSuccessReg;
+import RestAssured.Reqres.api.*;
 import RestAssured.Reqres.spec.Specifications;
 import org.assertj.core.api.Assert;
 import org.checkerframework.checker.units.qual.A;
@@ -11,6 +8,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static io.restassured.RestAssured.given;
 
@@ -66,5 +64,20 @@ public class ReqresTests {
                 .extract().as(RestAssured.Reqres.api.unSuccessReg.class);
         Assertions.assertEquals("Missing password",unSuccessReg.getError());
 
+    }
+
+    @Test
+    public void sortedYearsTest(){
+        Specifications.installSpecification(Specifications.requestSpec(URL), Specifications.responseSpecOK());
+        List<ColorsData> colors = given()
+                .when()
+                .get("api/inknown")
+                .then().log().all()
+                .extract().body().jsonPath().getList("data", ColorsData.class);
+        List<Integer> years = colors.stream().map(ColorsData::getYear).toList();
+        List<Integer> sortedYears = years.stream().sorted().toList();
+        Assertions.assertEquals(sortedYears,years);
+        System.out.println(years);
+        System.out.println(sortedYears);
     }
 }
