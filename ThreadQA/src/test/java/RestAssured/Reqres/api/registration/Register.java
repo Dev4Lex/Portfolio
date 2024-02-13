@@ -1,4 +1,4 @@
-package RestAssured.Reqres.api;
+package RestAssured.Reqres.api.registration;
 
 public class Register {
     public Register(String email, String password) {

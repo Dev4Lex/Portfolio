@@ -1,4 +1,4 @@
-package RestAssured.Reqres.api;
+package RestAssured.Reqres.api.colors;
 
 public class ColorsData {
     public ColorsData(Integer id, String name, Integer year, String color, String pantone_value) {

@@ -1,4 +1,4 @@
-package RestAssured.Reqres.api;
+package RestAssured.Reqres.api.registration;
 
 public class unSuccessReg {
     public String getError() {

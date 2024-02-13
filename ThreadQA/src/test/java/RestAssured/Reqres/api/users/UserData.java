@@ -1,4 +1,4 @@
-package RestAssured.Reqres.api;
+package RestAssured.Reqres.api.users;
 
 public class UserData {
 

@@ -1,19 +1,22 @@
 package RestAssured.Reqres.tests;
 
-import RestAssured.Reqres.api.*;
+import RestAssured.Reqres.api.colors.ColorsData;
+import RestAssured.Reqres.api.registration.Register;
+import RestAssured.Reqres.api.registration.SuccessReg;
+import RestAssured.Reqres.api.registration.unSuccessReg;
+import RestAssured.Reqres.api.users.UserData;
+import RestAssured.Reqres.api.users.UserTime;
+import RestAssured.Reqres.api.users.UserTimeResponse;
 import RestAssured.Reqres.spec.Specifications;
-import org.assertj.core.api.Assert;
-import org.checkerframework.checker.units.qual.A;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.time.Clock;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static io.restassured.RestAssured.given;
 
-public class ReqresTests {
+public class ReqresPojoTests {
 
     private final static String URL = "https://reqres.in/";
 
@@ -62,7 +65,7 @@ public class ReqresTests {
                 .body(user)
                 .post("api/register")
                 .then().log().all()
-                .extract().as(RestAssured.Reqres.api.unSuccessReg.class);
+                .extract().as(RestAssured.Reqres.api.registration.unSuccessReg.class);
         Assertions.assertEquals("Missing password",unSuccessReg.getError());
 
     }

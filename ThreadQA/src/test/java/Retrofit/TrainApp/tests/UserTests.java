@@ -44,6 +44,9 @@ public class UserTests {
     public void testGetToken() throws IOException {
         String username = DataGenerator.generateUsername();
         String password = DataGenerator.generatePassword(5);
+        UserSignupRequest userSignupRequest = new UserSignupRequest(username,password);
+        Response<UserSignupResponse> userResponse = userController.createUser(userSignupRequest).execute();
+        assertTrue(userResponse.isSuccessful());
         GetTokenRequest getTokenRequest = new GetTokenRequest(password, username);
         Response<GetTokenResponse> response = jwtController.getToken(getTokenRequest).execute();
         assertTrue(response.isSuccessful());
@@ -58,7 +61,7 @@ public class UserTests {
     public void testSignupUser() throws IOException {
         String username = DataGenerator.generateUsername();
         String password = DataGenerator.generatePassword(5);
-        UserSignupRequest userSignupRequest = new UserSignupRequest(password, username);
+        UserSignupRequest userSignupRequest = new UserSignupRequest(username,password);
         Response<UserSignupResponse> response = userController.createUser(userSignupRequest).execute();
         assertTrue(response.isSuccessful());
 

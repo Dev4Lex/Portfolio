@@ -1,4 +1,4 @@
-package RestAssured.Reqres.api;
+package RestAssured.Reqres.api.users;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package RestAssured.Reqres.api;
+package RestAssured.Reqres.api.registration;
 
 public class SuccessReg {
     public SuccessReg(Integer id, String token) {

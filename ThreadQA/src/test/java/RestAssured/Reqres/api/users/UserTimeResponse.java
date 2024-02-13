@@ -1,6 +1,8 @@
-package RestAssured.Reqres.api;
+package RestAssured.Reqres.api.users;
 
-public class UserTimeResponse extends UserTime{
+import RestAssured.Reqres.api.users.UserTime;
+
+public class UserTimeResponse extends UserTime {
 
     public String getUpdatedAt() {
         return updatedAt;
