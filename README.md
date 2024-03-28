@@ -3,19 +3,17 @@ Automation QA and way I see it
 ## My stack
 Programming language: Java
 
-Build tool: Maven
+Build tool: Maven / Gradle
 
-Test framework: Selenium -> Selenium WebDriver -> Selenide
+Test framework: Junit5 / TestNG
 
-Parallel across: Selenium Grid
-
-CI: Jenkins
+CI/CD: Jenkins, Gitlab
 
 Reporting: Allure
 
-Unit testing tool: Junit
+REST API testing: REST Assured, Retrofit
 
-REST API tool: REST Assured, Retrofit
+UI testing: Selenium, Selenide
 
 IDE: IntelliJ IDEA
 
